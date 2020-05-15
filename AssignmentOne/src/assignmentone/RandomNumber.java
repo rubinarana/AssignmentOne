@@ -1,53 +1,47 @@
 package assignmentone;
-import java.util.Random;
 
-class Multithreading implements Runnable 
-{ 
-    public void run() 
-    { 
-        int counter;
-        Random rnum = new Random();
-        for (counter = 1; counter <= 5; counter++) {
-        System.out.println(rnum.nextInt());
-       }
-    } 
-}   
+import java.util.concurrent.ThreadLocalRandom;
 
-class RandomNumber 
-{ 
-    public static void main(String[] args) 
-    { 
-       Runnable m =new Multithreading();
-       Thread thread=new Thread(m);
-       thread.start();
-     } 
-} 
+class Thread1 extends Thread {
+    public void run() {
+        System.out.println("Negative Number");
+    }
+}
+class Thread2 extends Thread {
+    
+    public void run() {
+        System.out.println("Even Number");
+    }
+}
+class Thread3 extends Thread {
+   
+    public void run() {
+        System.out.println("Odd Number");
+    }
+}
 
+public class  RandomNumber {
+	public static void main(String args[]) {
+            
+            for (int i = 1; i <= 10; i++) {
+                int rand_num= ThreadLocalRandom.current().nextInt();
+                
+                if(rand_num < 0){
+                    Thread1 t1 = new Thread1();              
+                    t1.start();
+                }
 
-//class odd implements Runnable{
-//    public void run(){
-//        for(int i=0;i<11;i+=2) {
-//            System.out.println("even:" +i);
-//        }
-//    }
-//}
-//
-//class even implements Runnable{
-//    public void run(){
-//        for(int i=1;i<=11;i+=2) {
-//           System.out.println("odd:" +i);
-//        }
-//    }
-//}
-//
-//public class RandomNumber {
-//
-//    public static void main(String[] args) {
-//        Runnable r1 = new odd();
-//        Thread t = new Thread(r1);
-//        Runnable r2 = new even();
-//        Thread t2 = new Thread(r2);
-//        t.start();
-//        t2.start();
-//    }
-//}
+                else if (rand_num % 2 ==0){
+                    Thread2 t2 = new Thread2();
+                    t2.start();
+                }
+
+                else if(rand_num % 2 !=0){
+
+                    Thread3 t3 = new Thread3();
+                    t3.start();
+                }
+                System.out.println("The generated number is: "+rand_num);
+            }
+        }
+    }

@@ -1,113 +1,38 @@
 package assignmentone;
 
 public class Book{
-	private String  BookName,
+	private String  bookName,
                         ISBN,
-                        Author,
-                  Price;
-	public Book(String BookName, String ISBN,String Author, String Price)
+                        author;
+        private double   price;
+	public Book(String bookName, String ISBN, String author, double price)
 	{
-		this.BookName = BookName;
+		this.bookName = bookName;
 		this.ISBN = ISBN ;
-                this.Author = Author;
-                this.Price=Price;
+                this.author = author;
+                this.price=price;
 	}
-	public void getBookName()
+	public void getbookName()
 	{
-		System.out.println("Enter a BookName: "+BookName);
+		System.out.println("Enter a Book Name: "+bookName);
 	}
 	public void getISBN()
 	{
 		System.out.println("Entere ISBN: "+ISBN);
 	}
-        public void getAuthor()
+        public void getauthor()
 	{
-		System.out.println("Enter AuthorName: "+Author);
+		System.out.println("Enter Author Name: "+author);
 	}
-	public void getPrice()
+	public void getprice()
 	{
-		System.out.println("Enter Price "+Price);
+		System.out.println("Enter Price "+price);
 	}
 	 public static void main(String[] args) {
-	 	Book b1=new Book("java","12-34-56-7","abc","1200.00");
-	 	b1.getBookName();
+	 	Book b1=new Book("java","12-34-56-7","abc",1200.00);
+	 	b1.getbookName();
 	 	b1.getISBN();
-                b1.getAuthor();
-	 	b1.getPrice();
+                b1.getauthor();
+	 	b1.getprice();
 	}
 }
-
-//package assignmentone;
-//
-//import java.util.Scanner;
-//
-// class book {
-//	private String BookName,
-//                ISBN,
-//                Author,
-//                Price;
-//        
-//        book()
-//	{}
-//        //setter
-//        public void setBookName(String bookName) {
-//            this.BookName = bookName;
-//        }
-//          public void setISBN(String ISBN) {
-//            this.ISBN = ISBN ;
-//        }
-//        public void setAuthor(String author) {
-//           this.Author = author;
-//        }
-//        public void setPrice(String price) {
-//            this.Price =price;
-//        }
-//       
-//        //getter
-//	public String getBookName()
-//	{
-//		return BookName;
-//	}
-//	public String getISBN()
-//	{
-//		return ISBN;
-//	}
-//        public String getAuthor()
-//	{
-//		return Author;
-//	}
-//	public String getPrice()
-//	{
-//		return Price;
-//	}
-//}
-//
-//public class Book {
-//public static void main(String[] args) {
-//    Scanner sc=new Scanner(System.in);
-//    String bookName=null;
-//    String ISBN=null;
-//    String author=null;
-//    Double price=null;
-//    
-//    System.out.println("Enter book name:");
-//    bookName=sc.nextLine();
-//    System.out.println("Enter ISBN:");
-//    ISBN=sc.nextLine();
-//    System.out.println("Enter author name:");
-//    author=sc.nextLine();
-//    System.out.println("Enter price:");
-//    price=sc.nextDouble();
-//         
-//    Book b=new Book();
-//    b.setBookName(bookName);       
-//    b.setISBN(ISBN);
-//    b.setAuthor(author);
-//    b.setPrice(price);
-//   
-//    System.out.println("Book Name"+b.getBookName());
-//    System.out.println("Book ISBN"+b.getISBN());
-//    System.out.println("Book Author"+b.getAuthor());  
-//    System.out.println("Book price"+b.getPrice());      
-//}
-//}

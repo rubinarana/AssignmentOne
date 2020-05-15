@@ -1,33 +1,46 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package assignmentone;
-
 /**
  *
  * @author rubir
  */
-interface Politican{
-    public void calculateSalary();
+class PersonInheritance {
+    private String name;
+    private double baseSalary = 5000;
+    private double bonusSalary;
+
+    public PersonInheritance() {
+    }
+
+    public PersonInheritance(String name, double bonusSalary){
+        this.name = name;
+        this.bonusSalary = bonusSalary;
+        System.out.println("Name: "+name);
+        System.out.println("Total Salary: "+(baseSalary+this.bonusSalary));
+    }
 }
-interface Sportsman{
-     public void calculateSalary();
+
+class Politician extends PersonInheritance{
+
+    public Politician(String name,double bonusSalary) {
+        super(name, bonusSalary);
+    }
+
+    public Politician() {
+    }
 }
-class Person implements Politican, Sportsman 
-{ 
-    public void calculateSalary()
-   {
-        double taxRate = 0.20;
-        double tax = 4000 * taxRate;
-        double netSalary = 4000 - tax;
-       System.out.println("The total salary is " +netSalary);
-   }
-    public static void main(String args[]) 
-    { 
-        Person p = new Person(); 
-        p.calculateSalary(); 
-    
-    } 
-} 
+class Sportsman extends PersonInheritance{
+
+    public Sportsman(String name,double bonusSalary){
+        super(name,bonusSalary);
+    }
+
+    public Sportsman() {
+    }
+}
+
+class Person {
+    public static void main(String[] args) {
+        Politician politician = new Politician("ram",2000);
+        Sportsman sportsman = new Sportsman("hari",1000);
+    }
+}
